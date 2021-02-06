@@ -71,6 +71,6 @@ jobs:
         port: ${{ secrets.SSH_PORT }}
         script: |
           echo "Go agains satt"
-          cd ~/re-cloud
+          cd ~/re-cloud-noteapp
           docker-compose down --rmi local
           docker-compose up -d
