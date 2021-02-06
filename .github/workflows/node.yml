@@ -71,6 +71,8 @@ jobs:
         port: ${{ secrets.SSH_PORT }}
         script: |
           echo "Go agains satt"
+          echo "${{ github.sha }}"
           cd ~/re-cloud-noteapp
+          export SHA=${{ github.sha }}
           docker-compose down --rmi local
           docker-compose up -d
