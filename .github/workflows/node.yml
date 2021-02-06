@@ -70,7 +70,7 @@ jobs:
         key: ${{ secrets.SSH_KEY }}
         port: ${{ secrets.SSH_PORT }}
         script: |
-          echo "Go agains boiss"
+          echo "Go agains satt"
           cd ~/re-cloud
           docker-compose down --rmi local
           docker-compose up -d
