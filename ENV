@@ -1,0 +1,3 @@
+MONGODB_HOST this is the Mongodb URI string
+MONGODB_DATABASE Mongodb database name
+NODE_ENV
