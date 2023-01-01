@@ -56,23 +56,23 @@ jobs:
         exit-code: '0'
         severity: 'MEDIUM,HIGH,CRITICAL'
 
-  deploy:
+  # deploy:
 
-    needs: [build]
-    runs-on: ubuntu-18.04
+  #   needs: [build]
+  #   runs-on: ubuntu-18.04
 
-    steps: 
-    - name: SSH and deploy node app
-      uses: appleboy/ssh-action@master
-      with:
-        host: ${{ secrets.SSH_HOST }}
-        username: ${{ secrets.SSH_USERNAME }}
-        key: ${{ secrets.SSH_KEY }}
-        port: ${{ secrets.SSH_PORT }}
-        script: |
-          echo "Go agains satt"
-          echo "${{ github.sha }}"
-          cd ~/re-cloud-noteapp
-          export SHA=${{ github.sha }}
-          docker-compose down --rmi local
-          docker-compose up -d
+  #   steps: 
+  #   - name: SSH and deploy node app
+  #     uses: appleboy/ssh-action@master
+  #     with:
+  #       host: ${{ secrets.SSH_HOST }}
+  #       username: ${{ secrets.SSH_USERNAME }}
+  #       key: ${{ secrets.SSH_KEY }}
+  #       port: ${{ secrets.SSH_PORT }}
+  #       script: |
+  #         echo "Go agains satt"
+  #         echo "${{ github.sha }}"
+  #         cd ~/re-cloud-noteapp
+  #         export SHA=${{ github.sha }}
+  #         docker-compose down --rmi local
+  #         docker-compose up -d

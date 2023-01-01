@@ -1,0 +1,24 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: mongo # Sets service name
+  labels:
+    app: mongo # Labels and Selectors
+spec:
+  type: NodePort # Sets service type
+  ports:
+    - port: 27017 # Sets port to run the mongo application
+  selector:
+    app: mongo
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: node-app-service
+spec:
+  selector:
+    app: node-app
+  ports:
+  - port: 4000
+    protocol: TCP
+    targetPort: 4000
