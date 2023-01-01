@@ -31,26 +31,28 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: node-app
+  name: noteapp-deployment
+  labels:
+    app: noteapp
 spec:
+  replicas: 1
   selector:
     matchLabels:
-      app: node-app
-  replicas: 2
+      app: noteapp
   template:
     metadata:
       labels:
-        app: node-app
+        app: noteapp
     spec:
       containers:
-      - name: node-app
-          image: palopalepalo/noteapp:latest
-          ports:
-            - containerPort: 4000
-          env:
-          - name : MONGODB_HOST
-            value : "host"
-          - name : MONGODB_DB
-            value: "notesdb"
-          - name : PORT
-            value: "4000"
+      - name: noteapp
+        image: palopalepalo/noteapp:latest
+        ports:
+        - containerPort: 4000
+        env:
+        - name : MONGODB_HOST
+          value : "host"
+        - name : MONGODB_DB
+          value: "notesdb"
+        - name : PORT
+          value: "4000"
